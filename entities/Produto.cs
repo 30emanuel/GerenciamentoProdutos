@@ -1,8 +1,5 @@
 using System;
-using GerenciamentoProdutos.entities;
-using System.Collections.Generic;
 using System.Globalization;
-using System.IO;
 namespace GerenciamentoProdutos.entities
 {
     public class Produto
@@ -11,5 +8,12 @@ namespace GerenciamentoProdutos.entities
         public int Codigo { get; set; }
         public double Custo { get; set; }
         public double Venda { get; set; }
+        public override string ToString()
+        {
+            return Nome 
+            + "     |" + Codigo 
+            + "     |" + Custo.ToString("F2", CultureInfo.InvariantCulture) 
+            + "     |" + Venda.ToString("F2", CultureInfo.InvariantCulture);
+        }
     }
 }

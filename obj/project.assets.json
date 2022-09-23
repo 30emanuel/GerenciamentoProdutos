@@ -8,19 +8,19 @@
     "net5.0": []
   },
   "packageFolders": {
-    "C:\\Users\\User\\.nuget\\packages\\": {}
+    "C:\\Users\\emanu\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\User\\Documents\\GerenciamentoProdutos\\GerenciamentoProdutos.csproj",
+      "projectUniqueName": "C:\\Users\\emanu\\OneDrive\\Documentos\\cursos\\GerenciamentoProdutos\\GerenciamentoProdutos.csproj",
       "projectName": "GerenciamentoProdutos",
-      "projectPath": "C:\\Users\\User\\Documents\\GerenciamentoProdutos\\GerenciamentoProdutos.csproj",
-      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\User\\Documents\\GerenciamentoProdutos\\obj\\",
+      "projectPath": "C:\\Users\\emanu\\OneDrive\\Documentos\\cursos\\GerenciamentoProdutos\\GerenciamentoProdutos.csproj",
+      "packagesPath": "C:\\Users\\emanu\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\emanu\\OneDrive\\Documentos\\cursos\\GerenciamentoProdutos\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\emanu\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
@@ -58,7 +58,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.214\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
       }
     }
   }

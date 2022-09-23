@@ -12,7 +12,7 @@ namespace GerenciamentoProdutos
         {
             Console.Clear();
             Console.WriteLine("|===============================|");
-            Console.WriteLine("|           MENU                |");
+            Console.WriteLine("|            MENU               |");
             Console.WriteLine("|===============================|");
             Console.WriteLine("|1 - Cadastrar Produto          |");
             Console.WriteLine("|2 - Remover Produto            |");
@@ -34,10 +34,31 @@ namespace GerenciamentoProdutos
             prod.Custo = double.Parse(Console.ReadLine());
             Console.Write("Venda: ");
             prod.Venda = double.Parse(Console.ReadLine());
-            Console.WriteLine("Informações gravadas com sucesso!");
-            Console.ReadLine();
+            Console.WriteLine("\nInformações gravadas com sucesso!\n");
 
             return prod;
+        }
+        public static void RemoverProduto(Produtos p){
+            Console.Clear();
+            int i = 1;
+            Console.WriteLine("Nome        |Codigo     |Custo      |Venda      ");
+            foreach (Produto prod in p.ProdutosLista){
+                Console.WriteLine(prod.ToString() + "   Numero: " + i);
+                i++;
+            }
+            Console.Write("\nDigite o numero do produto que deseja remover: ");
+            int removerProduto = int.Parse(Console.ReadLine());
+            removerProduto = removerProduto - 1 ;
+            p.RemProduto(removerProduto);
+        }
+        public static void ListaProdutos(Produtos p){
+            Console.Clear();
+            Console.WriteLine("Nome        |Codigo     |Custo      |Venda      ");
+            foreach (Produto prod in p.ProdutosLista){
+                Console.WriteLine(prod.ToString());
+            }
+            Console.WriteLine("\n\nAperte ENTER para voltar ao Menu");
+            Console.ReadLine();
         }
     }
 }

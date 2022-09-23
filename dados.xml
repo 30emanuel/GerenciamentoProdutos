@@ -1,0 +1,22 @@
+<XML>
+  <Produtos>
+      <Prod1>
+          <Nome>teste1</Nome>
+          <Codigo>435345</Codigo>
+          <Custo>453.00</Custo>
+          <Venda>345.00</Venda>
+      </Prod1>
+      <Prod2>
+          <Nome>teste3</Nome>
+          <Codigo>435</Codigo>
+          <Custo>456.00</Custo>
+          <Venda>65.00</Venda>
+      </Prod2>
+      <Prod3>
+          <Nome>teste4</Nome>
+          <Codigo>34556</Codigo>
+          <Custo>34.00</Custo>
+          <Venda>56.00</Venda>
+      </Prod3>
+  </Produtos>
+</XML>
