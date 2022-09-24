@@ -2,21 +2,33 @@
   <Produtos>
       <Prod1>
           <Nome>teste1</Nome>
-          <Codigo>435345</Codigo>
-          <Custo>453.00</Custo>
-          <Venda>345.00</Venda>
+          <Codigo>45</Codigo>
+          <Custo>54.50</Custo>
+          <Venda>50.50</Venda>
       </Prod1>
       <Prod2>
-          <Nome>teste3</Nome>
-          <Codigo>435</Codigo>
-          <Custo>456.00</Custo>
-          <Venda>65.00</Venda>
+          <Nome>teste2</Nome>
+          <Codigo>4504</Codigo>
+          <Custo>50.60</Custo>
+          <Venda>65.50</Venda>
       </Prod2>
       <Prod3>
-          <Nome>teste4</Nome>
-          <Codigo>34556</Codigo>
-          <Custo>34.00</Custo>
-          <Venda>56.00</Venda>
+          <Nome>teste3</Nome>
+          <Codigo>545454657</Codigo>
+          <Custo>6550.00</Custo>
+          <Venda>100.00</Venda>
       </Prod3>
+      <Prod4>
+          <Nome>teste4</Nome>
+          <Codigo>1235</Codigo>
+          <Custo>56.67</Custo>
+          <Venda>80.50</Venda>
+      </Prod4>
+      <Prod5>
+          <Nome>teste5</Nome>
+          <Codigo>673</Codigo>
+          <Custo>5.50</Custo>
+          <Venda>10.50</Venda>
+      </Prod5>
   </Produtos>
 </XML>

@@ -11,6 +11,12 @@ namespace GerenciamentoProdutos
         static void Main(string[] args)
         {
             Produtos produto = new Produtos();
+            string NomeArquivo = produto.RetornaNomeArquivo();
+            
+            if (File.Exists(NomeArquivo) == true)
+            {
+                produto.CarregarXml(NomeArquivo);
+            }
             int itemMenu = 0;
             while (itemMenu != 4){
                 switch (itemMenu)
@@ -22,7 +28,7 @@ namespace GerenciamentoProdutos
                     case 1:
                         Produto prod = Tela.CadastrarProduto();
                         produto.AdicionarProduto(prod);
-                        Console.Write("Deseja cadastrar outro produto? S-Sim e N-Não: ");
+                        Console.Write("Deseja cadastrar outro produto? S (Sim) e N (Não) : ");
                         string NovoProduto = Console.ReadLine();
                         if (NovoProduto == "s")
                         {

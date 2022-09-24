@@ -53,8 +53,43 @@ namespace GerenciamentoProdutos.entities
             sw.WriteLine("  </Produtos>");
             sw.WriteLine("</XML>");
             sw.Close();
-
             return "";
+        }
+        public void CarregarXml(string xmls){
+            string xml = File.ReadAllText(xmls);
+            int ContaProduto = 1;
+            string TagProd = "Prod" + ContaProduto;
+            string TagProduto = LerTag(TagProd,xml);
+
+            while (TagProduto !=  "")
+            {
+                Produto prod = new Produto();
+                prod.Nome = LerTag("Nome",TagProduto);
+                prod.Codigo = int.Parse(LerTag("Codigo",TagProduto));
+                prod.Custo = double.Parse(LerTag("Custo",TagProduto));
+                prod.Venda = double.Parse(LerTag("Venda",TagProduto));
+
+                AdicionarProduto(prod);
+
+                ContaProduto ++;
+                TagProd = "Prod" + ContaProduto;
+                TagProduto = LerTag(TagProd,xml);
+            }
+        }
+        private string LerTag(string Tag, string xml)
+        {
+            int piTag = xml.IndexOf(Tag);
+            int pfTag = xml.IndexOf("/" + Tag);
+            piTag += Tag.Length + 1;
+            pfTag = pfTag - 1;
+            int comprimento = pfTag - piTag;
+            string retorno = "";
+            if(comprimento > 0){
+                retorno = xml.Substring(piTag,comprimento);
+            }else{
+                retorno = "";
+            }
+            return retorno;
         }
     }
 }
