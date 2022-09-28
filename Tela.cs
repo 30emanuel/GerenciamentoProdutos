@@ -30,9 +30,9 @@ namespace GerenciamentoProdutos
             prod.Nome = Console.ReadLine();
             Console.Write("Codigo: ");
             prod.Codigo = int.Parse(Console.ReadLine());
-            Console.Write("Custo: ");
+            Console.Write("Custo: R$");
             prod.Custo = double.Parse(Console.ReadLine());
-            Console.Write("Venda: ");
+            Console.Write("Venda: R$");
             prod.Venda = double.Parse(Console.ReadLine());
             Console.WriteLine("\nInformações gravadas com sucesso!\n");
 
@@ -40,20 +40,32 @@ namespace GerenciamentoProdutos
         }
         public static void RemoverProduto(Produtos p){
             Console.Clear();
-            int i = 1;
-            Console.WriteLine("Nome        |Codigo     |Custo      |Venda      ");
+            int i = 0;
+            Console.WriteLine("      Nome          |        Codigo       |        Custo        |            Venda       ");            
             foreach (Produto prod in p.ProdutosLista){
-                Console.WriteLine(prod.ToString() + "   Numero: " + i);
+                Console.WriteLine(prod.ToString());
                 i++;
             }
-            Console.Write("\nDigite o numero do produto que deseja remover: ");
-            int removerProduto = int.Parse(Console.ReadLine());
-            removerProduto = removerProduto - 1 ;
-            p.RemProduto(removerProduto);
+            if(i >= 1){
+            Console.WriteLine("\nDigite o codigo do produto que deseja remover: ");
+                int CodigoRemover = int.Parse(Console.ReadLine());
+                int RetornoRemover = p.RemProduto(CodigoRemover);
+                if(RetornoRemover > 0 ){
+                    p.ProdutosLista.RemoveAt(RetornoRemover - 1);
+                    Console.WriteLine("Produto removido com sucesso");
+                }else{
+                    Console.WriteLine("\nERRO: Codigo não encontrado");
+                }
+            }else{
+                Console.WriteLine("\nNenhum Produto encontrado");
+            }
+            Console.WriteLine("Aperte ENTER para voltar ao Menu");
+            Console.ReadLine();
+            
         }
         public static void ListaProdutos(Produtos p){
             Console.Clear();
-            Console.WriteLine("Nome        |Codigo     |Custo      |Venda      ");
+            Console.WriteLine("      Nome          |         Codigo       |          Custo      |           Venda       ");
             foreach (Produto prod in p.ProdutosLista){
                 Console.WriteLine(prod.ToString());
             }

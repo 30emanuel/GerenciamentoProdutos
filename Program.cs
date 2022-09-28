@@ -30,7 +30,7 @@ namespace GerenciamentoProdutos
                         produto.AdicionarProduto(prod);
                         Console.Write("Deseja cadastrar outro produto? S (Sim) e N (Não) : ");
                         string NovoProduto = Console.ReadLine();
-                        if (NovoProduto == "s")
+                        if (NovoProduto == "s" || NovoProduto == "S")
                         {
                             itemMenu = 1;
                         }

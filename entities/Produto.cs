@@ -10,10 +10,7 @@ namespace GerenciamentoProdutos.entities
         public double Venda { get; set; }
         public override string ToString()
         {
-            return Nome 
-            + "     |" + Codigo 
-            + "     |" + Custo.ToString("F2", CultureInfo.InvariantCulture) 
-            + "     |" + Venda.ToString("F2", CultureInfo.InvariantCulture);
+            return String.Format("{0,10}{1,25}{2,25}{3,22}", Nome, Codigo, Custo.ToString("F2", CultureInfo.InvariantCulture), Venda.ToString("F2", CultureInfo.InvariantCulture));
         }
     }
 }

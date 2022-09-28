@@ -12,8 +12,26 @@ namespace GerenciamentoProdutos.entities
         {
             ProdutosLista.Add(p);
         }
-        public void RemProduto(int remover){
-            ProdutosLista.RemoveAt(remover);
+        public int RemProduto(int CodigoRemover){
+            string NomeArquivo = RetornaNomeArquivo();
+            string xml = File.ReadAllText(NomeArquivo);
+            int ContaProduto = 1;
+            string TagProd = "Prod" + ContaProduto;
+            string TagProduto = LerTag(TagProd,xml);
+            int IndexCodigo = 0;
+
+            while (TagProduto !=  "")
+            {
+                Produto prod = new Produto();
+                prod.Codigo = int.Parse(LerTag("Codigo",TagProduto));
+                if (prod.Codigo == CodigoRemover){
+                    IndexCodigo = ContaProduto;
+                }
+                ContaProduto ++;
+                TagProd = "Prod" + ContaProduto;
+                TagProduto = LerTag(TagProd,xml);
+            }
+            return IndexCodigo;
         }
         public Produtos()
         {
@@ -36,21 +54,21 @@ namespace GerenciamentoProdutos.entities
 
             StreamWriter sw = new StreamWriter(NomeArquivo);
             sw.WriteLine("<XML>");
-            sw.WriteLine("  <Produtos>");
+            sw.WriteLine("    <Produtos>");
             
             int contaproduto = 1;
             
             foreach (Produto prod in ProdutosLista)
             {   
-                sw.WriteLine("      <Prod" + contaproduto +">");
-                sw.WriteLine("          <Nome>" + prod.Nome + "</Nome>");
-                sw.WriteLine("          <Codigo>" + prod.Codigo  + "</Codigo>");
-                sw.WriteLine("          <Custo>" + prod.Custo.ToString("F2", CultureInfo.InvariantCulture)  + "</Custo>");
-                sw.WriteLine("          <Venda>" + prod.Venda.ToString("F2",CultureInfo.InvariantCulture)  + "</Venda>");
-                sw.WriteLine("      </Prod" + contaproduto +">");
+                sw.WriteLine("        <Prod" + contaproduto +">");
+                sw.WriteLine("            <Nome>" + prod.Nome + "</Nome>");
+                sw.WriteLine("            <Codigo>" + prod.Codigo  + "</Codigo>");
+                sw.WriteLine("            <Custo>" + prod.Custo.ToString("F2")  + "</Custo>");
+                sw.WriteLine("            <Venda>" + prod.Venda.ToString("F2")  + "</Venda>");
+                sw.WriteLine("        </Prod" + contaproduto +">");
                 contaproduto ++;
             }
-            sw.WriteLine("  </Produtos>");
+            sw.WriteLine("    </Produtos>");
             sw.WriteLine("</XML>");
             sw.Close();
             return "";
