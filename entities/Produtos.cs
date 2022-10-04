@@ -12,7 +12,7 @@ namespace GerenciamentoProdutos.entities
         {
             ProdutosLista.Add(p);
         }
-        public int RemProduto(int CodigoRemover){
+        public int ProcuraCodigo(int CodigoRemover){
             string NomeArquivo = RetornaNomeArquivo();
             string xml = File.ReadAllText(NomeArquivo);
             int ContaProduto = 1;

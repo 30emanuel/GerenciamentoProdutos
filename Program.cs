@@ -26,7 +26,7 @@ namespace GerenciamentoProdutos
                         itemMenu = int.Parse(System.Console.ReadLine()); 
                         break;
                     case 1:
-                        Produto prod = Tela.CadastrarProduto();
+                        Produto prod = Tela.CadastrarProduto(produto);
                         produto.AdicionarProduto(prod);
                         Console.Write("Deseja cadastrar outro produto? S (Sim) e N (Não) : ");
                         string NovoProduto = Console.ReadLine();
@@ -38,10 +38,12 @@ namespace GerenciamentoProdutos
                         {
                             itemMenu = 0;
                         }
+                        produto.GravarProduto();
                         break;
                     case 2:
                         Tela.RemoverProduto(produto);
                         itemMenu = 0;
+                        produto.GravarProduto();
                         break;
                     case 3:
                         Tela.ListaProdutos(produto);

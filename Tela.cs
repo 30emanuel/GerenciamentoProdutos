@@ -20,7 +20,7 @@ namespace GerenciamentoProdutos
             Console.WriteLine("|4 - Sair                       |");
             Console.WriteLine("|===============================|");
         }
-        public static Produto CadastrarProduto(){
+        public static Produto CadastrarProduto(Produtos p){
             Console.Clear();
             Produto prod = new Produto();
             Console.WriteLine("---------------------------------------------");
@@ -30,6 +30,13 @@ namespace GerenciamentoProdutos
             prod.Nome = Console.ReadLine();
             Console.Write("Codigo: ");
             prod.Codigo = int.Parse(Console.ReadLine());
+            int RetornoProcura = p.ProcuraCodigo(prod.Codigo);
+            while(RetornoProcura > 0 ){
+                Console.WriteLine("ERRO: Codigo ja cadastrado. Digite o codigo novamente.");
+                Console.Write("Codigo: ");
+                prod.Codigo = int.Parse(Console.ReadLine());
+                RetornoProcura = p.ProcuraCodigo(prod.Codigo);
+            }
             Console.Write("Custo: R$");
             prod.Custo = double.Parse(Console.ReadLine());
             Console.Write("Venda: R$");
@@ -49,7 +56,7 @@ namespace GerenciamentoProdutos
             if(i >= 1){
             Console.WriteLine("\nDigite o codigo do produto que deseja remover: ");
                 int CodigoRemover = int.Parse(Console.ReadLine());
-                int RetornoRemover = p.RemProduto(CodigoRemover);
+                int RetornoRemover = p.ProcuraCodigo(CodigoRemover);
                 if(RetornoRemover > 0 ){
                     p.ProdutosLista.RemoveAt(RetornoRemover - 1);
                     Console.WriteLine("Produto removido com sucesso");
